@@ -1,0 +1,793 @@
+:root{
+    --cont_width: 1535px;
+    --cblack: #111111;
+    --cgreen: #30AB4C;
+    --cred: #AD4844;
+    --cwhite: #F6F6F6;
+}
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/FuturaPT.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: 'Futura PT', sans-serif; 
+}
+header {
+    padding: 46px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    position: fixed;
+    width: calc(100% - 92px);
+    top: 0;
+    background: #FFFFFF;
+}
+
+h1 {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+h2 {
+    font-weight: 450;
+    font-size: 48px;
+    line-height: 61px;
+
+    background-image: linear-gradient(to right, #111111 0%, #B1B1B1 100%), linear-gradient(to right, #696969 0%, #B1B1B1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 1;
+}
+
+.setsuBgGrey {
+    background-color: #f6f6f6;
+}
+.setsuCont {
+    width: 100%;
+    max-width: var(--cont_width);
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+.mauto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.setsuBbl {
+    position: absolute;
+    pointer-events: none;
+    transition: .3s;
+    width: max-content !important;
+}
+
+
+/* header */
+.setsuHeaderBox {
+    position: relative;
+}
+@media(max-width: 991px)
+{
+    .setsuHeaderBox {
+        padding-top: 30px;
+    }
+}
+.setsuLogoHeader {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    height: 29px;
+    margin-left: 83px;
+    transition: .3s;
+}
+.setsuLogoHeader img {
+    width: 100%;
+    max-width: 239px;
+    transition: .3s;
+}
+@media(max-width: 1200px)
+{
+    .setsuLogoHeader {
+        height: 17px;
+    }
+    .setsuLogoHeader img {
+        max-width: 140px;
+    }
+}
+@media(max-width: 991px)
+{
+    .setsuLogoHeader {
+        height: auto;
+        margin-left: 0;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .setsuLogoHeader img {
+        max-width: 239px;
+    }
+}
+
+@media(max-width: 991px)
+{
+    .setsuLogoHeader {
+        height: auto;
+        margin-left: 0;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .setsuLogoHeader img {
+        max-width: 239px;
+    }
+}
+
+
+.setsuHeaderNav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    transition: .3s;
+}
+
+@media(max-width: 991px)
+{
+    .setsuHeaderNav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 40px;
+    }
+    .setsuMenuPC {
+        display: none;
+    }
+}
+.setsuMenuMob nav {
+    display: none;
+}
+@media(min-width: 992px)
+{
+    .setsuMenuMob {
+        display: none!important;
+    }
+}
+.setsuMenuToggle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--cblack);
+    margin: 4px 0;
+    transition: transform 0.3s ease;
+}
+
+.menuOpen .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menuOpen .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menuOpen .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+
+.headerLink {
+    position: relative;
+    text-decoration: none;
+    color: var(--cblack);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    overflow: hidden;
+    padding-bottom: 7px;
+}
+.headerLink::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--cblack);
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%); 
+}
+.headerLink:hover::after,
+.headerLink.headerActive::after { 
+    width: 100%;
+    left: 50%;
+    cursor: pointer;
+}
+.headerLink:hover {
+    color: var(--cblack);
+}
+
+.headerShop {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* M1 */
+.setsuM1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    padding-top: 151px;
+    z-index: 1;
+    position: relative;
+}
+@media(max-width: 991px)
+{
+    .setsuM1 {
+        grid-template-columns: 1fr;
+    }
+}
+.setsuM1Left {
+    padding-right: 102px;
+    width: calc(100% - 102px);
+    transition: .3s;
+}
+@media(max-width: 1200px)
+{
+    .setsuM1Left {
+        padding-right: 50px;
+        width: calc(100% - 50px);
+    }
+}
+@media(max-width: 991px)
+{
+    .setsuM1Left {
+        padding-right: 0;
+        width: 100%;
+    }
+}
+.setsuM1Right {
+    padding-top: 148px;
+}
+@media(max-width: 991px)
+{
+    .setsuM1Right {
+        padding-top: 50px;
+    }
+}
+.setsuM1Left img, .setsuM1Right img {
+    width: 100%;
+}
+@media(max-width: 991px)
+{
+    .setsuM1Left img {
+        max-width: 400px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+.setsuM1Right img {
+    max-width: 724px;
+}
+
+.setsuM1Right h2 {
+    background-image: linear-gradient(to right, #111111 0%, #B1B1B1 100%);
+    margin-top: 33px;
+    margin-bottom: 20px;
+}
+@media(max-width: 991px)
+{
+    .setsuM1Right h2 {
+        line-height: auto;
+    }
+}
+.setsuM1Right p {
+    color: var(--cblack);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    max-width: 550px;
+}
+.setsuM1Right a {
+    color: var(--cwhite);
+    background-color: var(--cgreen);
+    border: 1px solid var(--cgreen);
+    transition: .3s;
+    padding: 10px 40px;
+    text-decoration: none;
+    display: block;
+    width: max-content;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.setsuM1Right a:hover {
+    background-color: transparent;
+    color: var(--cgreen);
+}
+@media(max-width: 991px)
+{
+    .setsuM1Right a {
+        margin: 0 auto;
+    }
+}
+.setsuBbl1 {
+    right: 0;
+    bottom: 80px;
+}
+
+/* M2 */
+.setsuM2Title {
+    position: relative;
+}
+.setsuM2TitleBox h2 {
+    margin: 0;
+    padding: 153px 0 135px 0;
+    text-align: center;
+    position: relative;
+}
+.setsuM2TitleBox h2::after {
+    content: '';
+    height: 1px;
+    width: 126px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--cblack);
+    margin-top: 20px;
+}
+.setsuBbl2 {
+    left: 0;
+    top: -200px;
+}
+@media(max-width: 991px)
+{
+    .setsuBbl2 {
+        width: 200px !important;
+    }
+}
+.setsuBbl3 {
+    right: 0;
+    top: -200px;
+}
+@media(max-width: 991px)
+{
+    .setsuBbl3 {
+        width: 200px !important;
+    }
+}
+.setsuM2Content {
+    overflow-x: hidden;
+}
+.setsuM2ContentBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 200px;
+    z-index: 1;
+    position: relative;
+    transition: .3s;
+    margin-bottom: 96px;
+}
+@media(max-width: 1360px)
+{
+    .setsuM2ContentBox {
+        gap: 100px;
+    }
+}
+@media(max-width: 991px)
+{
+    .setsuM2ContentBox {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+.setsuM2ContentElm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+}
+.setsuM2ContentElmText h3 {
+    font-weight: 450;
+    font-size: 31px;
+    text-align: center;
+    margin: 0 0 20px 0;
+    color: var(--cblack);
+    transition: .3s;
+}
+@media(max-width: 1200px)
+{
+    .setsuM2ContentElmText h3 {
+        font-size: 25px;
+    }
+}
+.setsuM2ContentElmHr {
+    width: 126px;
+    height: 1px;
+    display: block;
+    background: var(--cblack);
+    margin: 0 auto;
+}
+.setsuM2ContentElmText p {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: var(--cblack);
+    margin: 30px 0 50px 0;
+}
+.setsuM2ContentElm img {
+    width: 100%;
+    transition: .3s;
+}
+@media(max-width: 991px)
+{
+    .setsuM2ContentElm img {
+        max-width: 400px;
+        display: block;
+        margin: auto;
+    }
+}
+.setsuM2ContentElmIbgBox2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.setsuM2ContentElm2TextBox {
+    margin: 30px 0 50px 0;
+}
+.setsuM2ContentElm2Text1, .setsuM2ContentElm2Text2 {
+    display: flex;
+    align-items: center;
+}
+.setsuM2ContentElm2Text1 {
+    margin-bottom: 30px;
+}
+.setsuM2ContentElm2TextNum {
+    display: block;
+    color: #000000;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px 17px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 9px 0px rgba(0, 0, 0, 0.25);
+}
+.setsuM2ContentElm2TextNumContent {
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    display: block;
+}
+.setsuM2ContentElmIbgBox {
+    margin-bottom: 24px;
+    z-index: 1;
+    position: relative;
+}
+.setsuM2ContentElmBotHr {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--cblack);
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
+}
+.setsuM2ContentElm:hover .setsuM2ContentElmBotHr {
+    width: 100%;
+    left: 50%;
+    cursor: pointer;
+}
+.setsuBbl4 {
+    left: -60px;
+    bottom: 28px;
+}
+.setsuBbl5 {
+    bottom: 92px;
+    right: -62px;
+}
+.setsuBbl6 {
+    bottom: 22px;
+    left: -65px;
+}
+.setsuBbl7 {
+    bottom: 37px;
+    right: -18px;
+}
+.setsuBbl8 {
+    bottom: 67px;
+    left: -78px;
+}
+.setsuBbl9 {
+    bottom: 45px;
+    right: -22px;
+}
+
+/* M3 */
+.setsuM3TitleBox h2 {
+    margin: 50px 0 120px 0;
+    text-align: center;
+    position: relative;
+}
+.setsuM3TitleBox h2::after {
+    content: '';
+    height: 1px;
+    width: 126px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--cblack);
+    margin-top: 20px;
+}
+.setsuM3TitleBox h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 84px;
+    font-weight: 450;
+    font-size: 31px;
+    line-height: 40px;
+    color: var(--cblack);
+}
+
+.setsuM3ContentCenter img {
+    width: 100%;
+}
+@media(max-width: 991px)
+{
+    .setsuM3ContentCenter img {
+        max-width: 400px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+.setsuM3ContentBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 108px;
+}
+@media(max-width: 991px)
+{
+    .setsuM3ContentBox {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+.setsuM3ContentLeft, .setsuM3ContentRight {
+    display: grid;
+    gap: 60px;
+    justify-items: center;
+}
+.setsuM3ContentElm {
+    display: grid;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.setsuM3ContentElmElips {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+.setsuM3ContentElm h4 {
+    font-weight: 450;
+    font-size: 31px;
+    line-height: 40px;
+    text-align: center;
+    color: var(--cblack);
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    position: relative;
+}
+.setsuM3ContentElm h4::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--cblack);
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
+}
+.setsuM3ContentElm:hover h4::after {
+    width: 100%;
+    left: 50%;
+}
+.setsuM3ContentElmMg, .setsuM3ContentElm p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: var(--cblack);
+    margin: 0;
+}
+.setsuM3ContentElmMg {
+    margin: 20px 0;
+}
+.setsuM3ContentCenterLink {
+    color: var(--cwhite);
+    background-color: var(--cred);
+    border: 1px solid var(--cred);
+    transition: .3s;
+    padding: 10px 40px;
+    text-decoration: none;
+    display: block;
+    width: max-content;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 0 auto;
+}
+.setsuM3ContentCenterLink:hover {
+    background-color: transparent;
+    color: var(--cred);
+}
+
+
+/* M4 */
+
+.setsuM4Parallax {
+    background-image: url('../img/dog.png');
+    height: 542px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+}
+
+/* M5 */
+
+.setsuProductFormBox {
+    padding: 120px 0;
+}
+.setsuProductForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cred);
+    width: max-content;
+    margin: 0 auto;
+}
+
+.setsuProductForm label {
+    font-size: 20px;
+    font-weight: 450;
+    line-height: 26px;
+    padding: 10px;
+    color: var(--cblack);
+}
+
+.setsuProductForm select {
+    font-weight: 700;
+    line-height: 26px;
+    padding: 10px 63px 10px 40px;
+    font-size: 20px;
+    border: none;
+    background-color: var(--cred);
+    color: var(--cwhite);
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+@media(max-width: 991px)
+{
+    .setsuProductForm select {
+        padding: 10px;
+    }
+}
+
+.setsuCustomSelect {
+    position: relative;
+}
+.setsuSelectArr {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+@media(max-width: 991px)
+{
+    .setsuSelectArr {
+        display: none;
+    }
+}
+.setsuProdBox {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 35px;
+}
+@media(max-width: 991px)
+{
+    .setsuProdBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.setsuProduct {
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    background-color: #BEBEBE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.setsuProduct:hover {
+    transform: scale(1.05);
+}
+
+#setsuPU {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background: #00000080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+#setsuPU.active {
+    opacity: 1;
+    pointer-events: unset;
+}
+.setsuPUBox {
+    width: 100%;
+    max-width: 843px;
+    margin: 0 20px;
+    padding: 8px 20px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+    font-weight: 450;
+    font-size: 31px;
+    line-height: 40px;
+    position: relative;
+}
+#setsuPUId {
+    margin-bottom: 63px;
+}
+#setsuPUName {
+    margin-bottom: 55px;
+}
+#setsuPUValue {
+    margin-bottom: 31px;
+}
+#setsuPUClose {
+    position: absolute;
+    top: 0;
+    right: 17px;
+    cursor: pointer;
+}
